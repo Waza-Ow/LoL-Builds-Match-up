@@ -3,8 +3,8 @@ import os
 
 class RiotClient:
     def __init__(self):
-        self.watcher = LolWatcher(config.RIOT_API_KEY)
-        self.region = config.REGION
+        self.watcher = LolWatcher(os.getenv('RIOT_API_KEY'))
+        self.region = os.getenv('REGION', 'euw1')
 
     def get_champion_list(self):
         """Fetches the latest version of champion list."""
@@ -135,5 +135,6 @@ if __name__ == "__main__":
                                 print("Successfully fetched match details.")
                 except ApiError as e:
                     print(f"Error fetching summoner by ID: {e}")
+
 
 
