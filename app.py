@@ -28,7 +28,7 @@ def index():
         else:
             try:
                 # Expanded search with better coverage for all roles
-                matches = analyzer.find_matchups(champion, opponent if opponent else None, match_limit=40, max_seconds=60)
+                matches = analyzer.find_matchups(champion, opponent if opponent else None, match_limit=20, max_seconds=45)
                 
                 if matches:
                     stats = analyzer.analyze_builds(matches, champion)
@@ -89,3 +89,4 @@ if __name__ == '__main__':
     port = int(os.getenv('PORT', 5001))
     # debug=False for production
     app.run(debug=False, host='0.0.0.0', port=port)
+
