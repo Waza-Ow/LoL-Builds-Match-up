@@ -1,5 +1,5 @@
 from riotwatcher import LolWatcher, ApiError
-import config
+import os
 
 class RiotClient:
     def __init__(self):
@@ -135,4 +135,5 @@ if __name__ == "__main__":
                                 print("Successfully fetched match details.")
                 except ApiError as e:
                     print(f"Error fetching summoner by ID: {e}")
+
 
